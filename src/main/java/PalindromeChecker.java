@@ -53,23 +53,30 @@ public String reverse(String sWord)
   return Last; 
 }
 
-public String noSpaces(String sWord){
+public String noSpaces(String sWord)
+{
   String result = new String();
   for(int i = 0; i < sWord.length(); i++)
+  {
      if(!sWord.substring(i,i+1).equals(" "))
        result=result + sWord.substring(i,i+1);
+  }
   return result;
 }
 
-public String noCapitals(String sWord){
+public String noCapitals(String sWord)
+{
   return sWord.toLowerCase();
 }
 
-public String onlyLetters(String sString){
+public String onlyLetters(String sString)
+{
   String result = new String();
   for(int i = 0; i < sString.length(); i++)
+  {
     if(Character.isLetter(sString.charAt(i)))
       result = result + sString.substring(i,i+1);
+  }
   return result;
 }
 }
