@@ -25,7 +25,10 @@ public void tester()
   System.out.println("there are " + lines.length + " lines");
   for (int i=0; i < lines.length; i++) 
   {
-    if(palindrome(lines[i])==true)
+    String JustLetters =  onlyLetters(lines[i]);
+    String Lower = noCapitals(JustLetters);
+    String NoSpace = noSpaces(Lower);    
+    if(palindrome(NoSpace)==true)
     {
       System.out.println(lines[i] + " IS a palindrome.");
     }
@@ -35,15 +38,38 @@ public void tester()
     }
   }
 }
-public boolean palindrome(String word)
+public boolean palindrome(String sWord)
 {
-  //your code here
+  if(sWord.equals(reverse(sWord)))
+    return true;
   return false;
 }
-public String reverse(String str)
+public String reverse(String sWord)
 {
-    String sNew = new String();
-    //your code here
-    return sNew;
+  String Last = ""; 
+    for(int i=sWord.length(); i>0; i--){
+      Last = Last + sWord.substring(i-1,i);
+    }
+  return Last; 
+}
+
+public String noSpaces(String sWord){
+  String result = new String();
+  for(int i = 0; i < sWord.length(); i++)
+     if(!sWord.substring(i,i+1).equals(" "))
+       result=result + sWord.substring(i,i+1);
+  return result;
+}
+
+public String noCapitals(String sWord){
+  return sWord.toLowerCase();
+}
+
+public String onlyLetters(String sString){
+  String result = new String();
+  for(int i = 0; i < sString.length(); i++)
+    if(Character.isLetter(sString.charAt(i)))
+      result = result + sString.substring(i,i+1);
+  return result;
 }
 }
