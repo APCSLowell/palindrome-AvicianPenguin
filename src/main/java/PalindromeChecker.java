@@ -37,10 +37,10 @@ public void tester()
 }
 public boolean palindrome(String sWord)
 {
-  String JustLetters =  onlyLetters(sWord);
-  String Lower = noCapitals(JustLetters);
-  String NoSpace = noSpaces(Lower);  
-  if(sWord.equals(reverse(NoSpace)))
+  String NoSpace = noSpaces(sWord);
+  String JustCharacters =  onlyLetters(NoSpace);
+  String Lower = noCapitals(JustCharacters);
+  if(Lower.equals(reverse(Lower)))
     return true;
   return false;
 }
